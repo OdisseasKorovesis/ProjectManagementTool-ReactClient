@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { deleteProjectTask } from "../../../actions/backlogActions";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function ProjectTask(props) {
   const project_task = props.project_task;
@@ -18,6 +21,10 @@ function ProjectTask(props) {
     priorityString = "LOW";
   }
 
+  const onDeleteClick = (backlog_id, pt_id) => {
+    props.deleteProjectTask(backlog_id, pt_id);
+  };
+
   return (
     <div className="card mb-1 bg-light">
       <div className={`card-header text-primary ${priorityClass}`}>
@@ -28,14 +35,29 @@ function ProjectTask(props) {
         <p className="card-text text-truncate ">
           {project_task.acceptanceCriteria}
         </p>
-        <Link to={`/updateProjectTask/${project_task.identifier}/${project_task.projectSequence}`} className="btn btn-primary">
+        <Link
+          to={`/updateProjectTask/${project_task.identifier}/${project_task.projectSequence}`}
+          className="btn btn-primary"
+        >
           View / Update
         </Link>
 
-        <button className="btn btn-danger ml-4">Delete</button>
+        <button
+          className="btn btn-danger ml-4"
+          onClick={() => onDeleteClick(
+            project_task.identifier,
+            project_task.projectSequence
+          )}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
 }
 
-export default ProjectTask;
+ProjectTask.propTypes = {
+  deleteProjectTask: PropTypes.func.isRequired,
+};
+
+export default connect(null, { deleteProjectTask })(ProjectTask);

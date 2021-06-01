@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import classnames from "classnames";
 
 function UpdateProject(props) {
+  console.log(props)
+  
   const { id } = useParams();
 
   const [dbId, setDbId] = useState(props.project.id);
