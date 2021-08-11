@@ -17,7 +17,6 @@ function Register(props) {
   }, [props.errors]);
 
   const onChange = (ev) => {
-      
     switch (ev.target.name) {
       case "username":
         setUsername(ev.target.value);
@@ -112,7 +111,9 @@ function Register(props) {
                     onChange={onChange}
                   />
                   {errors.confirmPassword && (
-                    <div className="invalid-feedback">{errors.confirmPassword}</div>
+                    <div className="invalid-feedback">
+                      {errors.confirmPassword}
+                    </div>
                   )}
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
