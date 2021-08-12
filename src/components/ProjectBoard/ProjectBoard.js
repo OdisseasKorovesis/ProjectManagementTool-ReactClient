@@ -26,10 +26,10 @@ function ProjectBoard(props) {
   const boardAlgorithm = (errors, project_tasks) => {
     console.log(project_tasks.project_tasks)
     if (project_tasks.project_tasks.length < 1) {
-      if (errors.projectNotFound) {
+      if (errors.projectNotFound || errors.projectIdentifier) {
         return (
           <div className="alert alert-danger text-center" role="alert">
-            {errors.projectNotFound}
+            {errors.projectNotFound ? errors.projectNotFound : errors.projectIdentifier}
           </div>
         );
       } else {
