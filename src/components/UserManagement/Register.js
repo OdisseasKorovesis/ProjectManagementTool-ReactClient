@@ -16,6 +16,12 @@ function Register(props) {
     setErrors(props.errors);
   }, [props.errors]);
 
+  useEffect(() => {
+    if (props.security.validToken) {
+      props.history.push("/dashboard");
+    }
+  }, [props.security]);
+
   const onChange = (ev) => {
     switch (ev.target.name) {
       case "username":
@@ -129,10 +135,12 @@ function Register(props) {
 Register.propTypes = {
   createNewUser: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
+  security: PropTypes.object.isRequired
 };
 
 const mapStatetoProps = (state) => ({
   errors: state.errors,
+  security: state.security
 });
 
 export default connect(mapStatetoProps, { createNewUser })(Register);

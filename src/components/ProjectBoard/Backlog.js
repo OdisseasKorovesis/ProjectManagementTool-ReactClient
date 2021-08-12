@@ -9,8 +9,9 @@ function Backlog(props) {
     <ProjectTask key={project_task.id} project_task={project_task} />
   ));
 
-  let todoItems = tasks.filter((task) => task.props.project_task.status === "TO DO");
-  let inProgressItems = tasks.filter((task) => task.props.project_task.status === "IN PROGRESS");;
+  console.log(props.project_task);
+  let todoItems = tasks.filter((task) => task.props.project_task.status === "TO_DO");
+  let inProgressItems = tasks.filter((task) => task.props.project_task.status === "IN_PROGRESS");;
   let doneItems = tasks.filter((task) => task.props.project_task.status === "DONE");;
 
   return (

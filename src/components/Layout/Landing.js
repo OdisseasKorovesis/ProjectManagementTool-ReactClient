@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 
-function Landing() {
+function Landing(props) {
+  useEffect(() => {
+    if (props.security.validToken) {
+      props.history.push("/dashboard");
+    }
+  }, [props.security]);
+
   return (
     <div>
       <div className="landing">
@@ -17,10 +26,13 @@ function Landing() {
                 </p>
                 <hr />
                 <div className="row justify-content-around">
-                  <Link to="/register" className="btn btn-lg btn-primary mr-4 col-2">
+                  <Link
+                    to="/register"
+                    className="btn btn-lg btn-primary mr-4 col-2"
+                  >
                     Sign Up
                   </Link>
-                  <Link href="/login" className="btn btn-lg btn-secondary col-2">
+                  <Link to="/login" className="btn btn-lg btn-secondary col-2">
                     Login
                   </Link>
                 </div>
@@ -33,4 +45,12 @@ function Landing() {
   );
 }
 
-export default Landing;
+Landing.propTypes = {
+  security: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  security: state.security,
+});
+
+export default connect(mapStateToProps)(Landing);
