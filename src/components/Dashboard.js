@@ -17,7 +17,7 @@ function Dashboard(props) {
       <div className="projects">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 d-flex d-md-block flex-column flex-md-row">
               <h1 className="display-4 text-center">Projects</h1>
               <br />
               <CreateProjectButton />

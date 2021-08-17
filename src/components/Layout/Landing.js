@@ -25,14 +25,14 @@ function Landing(props) {
                   Create your account to join active projects or start your own
                 </p>
                 <hr />
-                <div className="row justify-content-around">
+                <div className="row flex-column flex-md-row justify-content-md-around">
                   <Link
                     to="/register"
-                    className="btn btn-lg btn-primary mr-4 col-2"
+                    className="btn btn-lg btn-primary mr-4 col-8 col-md-2 mx-auto mx-md-0 mb-2 mb-md-0"
                   >
                     Sign Up
                   </Link>
-                  <Link to="/login" className="btn btn-lg btn-secondary col-2">
+                  <Link to="/login" className="btn btn-lg btn-secondary col-8 col-md-2 mx-auto mx-md-0">
                     Login
                   </Link>
                 </div>
