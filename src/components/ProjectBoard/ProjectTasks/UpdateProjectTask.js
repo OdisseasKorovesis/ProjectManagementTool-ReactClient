@@ -29,7 +29,7 @@ function UpdateProjectTask(props) {
   const { id, sequence } = useParams();
 
   useEffect(() => {
-    props.getProjectTask(id, sequence, props.history).then(setSummary(summary));
+    props.getProjectTask(id, sequence, props.history);
   }, [id]);
 
   useEffect(() => {
