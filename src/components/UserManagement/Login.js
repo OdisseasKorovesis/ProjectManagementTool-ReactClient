@@ -46,7 +46,7 @@ function Login(props) {
       <div className="login">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-10 col-md-8 m-auto">
               <h1 className="display-4 text-center">Log In</h1>
               <form onSubmit={onSubmit}>
                 <div className="form-group">

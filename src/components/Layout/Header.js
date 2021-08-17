@@ -13,7 +13,7 @@ function Header(props) {
   };
 
   const userNotAuthenticated = (
-    <div className="collapse navbar-collapse" id="mobile-nav">
+    <div className="collapse navbar-collapse justify-content-end" id="mobile-nav">
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/register">
@@ -30,7 +30,7 @@ function Header(props) {
   );
 
   const userIsAuthenticated = (
-    <div className="collapse navbar-collapse" id="mobile-nav">
+    <div className="collapse navbar-collapse justify-content-end" id="mobile-nav">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
           <a className="nav-link" href="/dashboard">

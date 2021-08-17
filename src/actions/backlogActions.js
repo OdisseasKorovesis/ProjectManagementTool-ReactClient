@@ -43,6 +43,7 @@ export const getProjectTask =
         type: GET_PROJECT_TASK,
         payload: res.data,
       });
+      console.log('teleiose')
     } catch (err) {
       console.log(err);
       history.push("/dashboard");

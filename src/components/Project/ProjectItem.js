@@ -15,14 +15,14 @@ function ProjectItem(props) {
     <div className="container">
       <div className="card card-body bg-light mb-3">
         <div className="row">
-          <div className="col-2">
-            <span className="mx-auto">{project.identifier}</span>
+          <div className="col-md-2 text-center">
+            <span>{project.identifier}</span>
           </div>
-          <div className="col-lg-6 col-md-4 col-8">
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
+          <div className="col-12 col-md-4 col-lg-6">
+            <h3 className="text-center">{project.name}</h3>
+            <p className="text-center">{project.description}</p>
           </div>
-          <div className="col-md-4 d-none d-lg-block">
+          <div className="col-md-6 col-lg-4">
             <ul className="list-group">
               <Link to={`/projectBoard/${project.identifier}`}>
                 <li className="list-group-item board">
