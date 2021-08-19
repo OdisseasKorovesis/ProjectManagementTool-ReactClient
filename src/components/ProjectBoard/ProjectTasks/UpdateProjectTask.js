@@ -9,28 +9,33 @@ import PropTypes from "prop-types";
 import { useParams, Link } from "react-router-dom";
 
 function UpdateProjectTask(props) {
-  console.log(props.project_task.summary);
-
   const [projectId, setProjectId] = useState(props.project_task.id);
   const [projectSequence, setProjectSequence] = useState(
     props.project_task.sequence
   );
-  const [summary, setSummary] = useState(props.project_task.summary);
-  const [acceptanceCriteria, setAcceptanceCriteria] = useState(
-    props.project_task.acceptanceCriteria
-  );
-  const [status, setStatus] = useState(props.project_task.status);
-  const [priority, setPriority] = useState(props.project_task.priority);
-  const [dueDate, setDueDate] = useState(props.project_task.dueDate);
+  const [summary, setSummary] = useState("");
+  const [acceptanceCriteria, setAcceptanceCriteria] = useState("");
+  const [status, setStatus] = useState("");
+  const [priority, setPriority] = useState("");
+  const [dueDate, setDueDate] = useState("");
   const [identifier, setIdentifier] = useState(props.project_task.identifier);
   const [createdAt, setCreatedAt] = useState(props.project_task.createdAt);
   const [errors, setErrors] = useState({});
 
   const { id, sequence } = useParams();
 
+  const setFieldValues = async () => {
+    const res = await props.getProjectTask(id, sequence, props.history);
+    setSummary(res.data.summary);
+    setAcceptanceCriteria(res.data.acceptanceCriteria);
+    setDueDate(res.data.dueDate);
+    setPriority(res.data.priority);
+    setStatus(res.data.status);
+  };
+
   useEffect(() => {
-    props.getProjectTask(id, sequence, props.history);
-  }, [id]);
+    setFieldValues();
+  }, []);
 
   useEffect(() => {
     setErrors(props.errors);
@@ -95,7 +100,7 @@ function UpdateProjectTask(props) {
                 <input
                   type="text"
                   className={classnames("form-control form-control-lg", {
-                    "is-invalid": errors.summary
+                    "is-invalid": errors.summary,
                   })}
                   name="summary"
                   placeholder="Project Task summary"
@@ -117,8 +122,10 @@ function UpdateProjectTask(props) {
                   onChange={onChange}
                 ></textarea>
                 {errors.acceptanceCriteria && (
-                    <div className="invalid-feedback">{errors.acceptanceCriteria}</div>
-                  )}
+                  <div className="invalid-feedback">
+                    {errors.acceptanceCriteria}
+                  </div>
+                )}
               </div>
               <h6 className="mt-3">Due Date</h6>
               <div className="form-group">
@@ -132,8 +139,8 @@ function UpdateProjectTask(props) {
                   onChange={onChange}
                 />
                 {errors.dueDate && (
-                    <div className="invalid-feedback">{errors.dueDate}</div>
-                  )}
+                  <div className="invalid-feedback">{errors.dueDate}</div>
+                )}
               </div>
               <div className="form-group mt-3">
                 <select
@@ -150,13 +157,13 @@ function UpdateProjectTask(props) {
                   <option value={3}>Low</option>
                 </select>
                 {errors.priority && (
-                    <div className="invalid-feedback">{errors.priority}</div>
-                  )}
+                  <div className="invalid-feedback">{errors.priority}</div>
+                )}
               </div>
 
               <div className="form-group mt-3">
                 <select
-                className={classnames("form-control form-control-lg", {
+                  className={classnames("form-control form-control-lg", {
                     "is-invalid": errors.status,
                   })}
                   name="status"
@@ -169,8 +176,8 @@ function UpdateProjectTask(props) {
                   <option value="DONE">DONE</option>
                 </select>
                 {errors.status && (
-                    <div className="invalid-feedback">{errors.status}</div>
-                  )}
+                  <div className="invalid-feedback">{errors.status}</div>
+                )}
               </div>
 
               <input type="submit" className="btn btn-primary btn-block mt-4" />

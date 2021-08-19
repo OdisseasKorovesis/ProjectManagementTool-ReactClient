@@ -44,6 +44,7 @@ export const getProjectTask =
         payload: res.data,
       });
       console.log('teleiose')
+      return res;
     } catch (err) {
       console.log(err);
       history.push("/dashboard");
