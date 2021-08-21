@@ -13,7 +13,10 @@ function Header(props) {
   };
 
   const userNotAuthenticated = (
-    <div className="collapse navbar-collapse justify-content-end" id="mobile-nav">
+    <div
+      className="collapse navbar-collapse justify-content-end"
+      id="navbarNav"
+    >
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/register">
@@ -30,7 +33,10 @@ function Header(props) {
   );
 
   const userIsAuthenticated = (
-    <div className="collapse navbar-collapse justify-content-end" id="mobile-nav">
+    <div
+      className="collapse navbar-collapse justify-content-end"
+      id="navbarNav"
+    >
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
           <a className="nav-link" href="/dashboard">
@@ -63,18 +69,21 @@ function Header(props) {
   }
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
-      <div className="container">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+      <div class="container-fluid">
         <Link className="navbar-brand" to="/">
           Personal Project Management Tool
         </Link>
         <button
-          className="navbar-toggler"
+          class="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#mobile-nav"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon" />
+          <span class="navbar-toggler-icon"></span>
         </button>
         {headerLinks}
       </div>
