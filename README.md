@@ -9,14 +9,14 @@ This project was created following the design implemented in the Udemy course "F
 
 The project was created making use of the following technologies:
 
-###Back-End Application
+**Back-End Application**
 
 * Spring Boot 2
 * Spring Security (JWT-based authentication)
 * Spring Data JPA (MySQL Database)
 
 
-###Front-End Client
+**Front-End Client**
 
 * React.js
 * React Router for local routing
@@ -33,7 +33,7 @@ https://my-pmt-project-management-tool.herokuapp.com/
 
 Feel free to use it: register, log in, create your projects and fill their board with tasks!
 
-##Pending features/improvements
+## Pending features/improvements
 
 * Add comprehensive logging to the back-end.
 * Develop unit tests for the back-end.
