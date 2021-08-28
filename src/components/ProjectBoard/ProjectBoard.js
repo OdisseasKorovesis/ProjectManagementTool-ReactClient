@@ -24,7 +24,6 @@ function ProjectBoard(props) {
   const project_tasks = props.backlog;
 
   const boardAlgorithm = (errors, project_tasks) => {
-    console.log(project_tasks.project_tasks)
     if (project_tasks.project_tasks.length < 1) {
       if (errors.projectNotFound || errors.projectIdentifier) {
         return (

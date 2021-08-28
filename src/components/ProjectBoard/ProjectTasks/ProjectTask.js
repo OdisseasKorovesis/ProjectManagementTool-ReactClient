@@ -7,6 +7,11 @@ import { connect } from "react-redux";
 function ProjectTask(props) {
   const project_task = props.project_task;
 
+  const doDragStart = (ev) => {
+    ev.dataTransfer.setData('task', JSON.stringify(project_task));
+  }
+
+
   let priorityString;
   let priorityClass;
 
@@ -26,7 +31,7 @@ function ProjectTask(props) {
   };
 
   return (
-    <div className="card mb-1 bg-light">
+    <div draggable="true" onDragStart={doDragStart} className="card mb-1 bg-light">
       <div className={`card-header text-primary ${priorityClass}`}>
         ID: {project_task.projectSequence} -- Priority: {priorityString}
       </div>

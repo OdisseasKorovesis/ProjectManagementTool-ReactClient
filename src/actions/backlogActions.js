@@ -20,9 +20,7 @@ export const addProjectTask =
 
 export const getBacklog = (backlog_id) => async (dispatch) => {
   try {
-    console.log("mpike");
     const res = await axios.get(`/api/backlog/${backlog_id}`);
-    console.log(res);
     dispatch({
       type: GET_BACKLOG,
       payload: res.data,
@@ -43,7 +41,6 @@ export const getProjectTask =
         type: GET_PROJECT_TASK,
         payload: res.data,
       });
-      console.log('teleiose')
       return res;
     } catch (err) {
       console.log(err);
