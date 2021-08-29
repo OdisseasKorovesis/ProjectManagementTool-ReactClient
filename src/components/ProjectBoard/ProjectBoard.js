@@ -38,7 +38,7 @@ function ProjectBoard(props) {
         </div>)
       }
     } else {
-      return <Backlog project_tasks={props.backlog} />;
+      return <Backlog project_tasks={props.backlog} identifier={id}/>;
     }
   };
 

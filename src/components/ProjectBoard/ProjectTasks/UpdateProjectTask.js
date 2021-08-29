@@ -26,6 +26,9 @@ function UpdateProjectTask(props) {
 
   const setFieldValues = async () => {
     const res = await props.getProjectTask(id, sequence, props.history);
+    console.log(res.data);
+    setProjectId(res.data.id);
+    setIdentifier(res.data.identifier);
     setSummary(res.data.summary);
     setAcceptanceCriteria(res.data.acceptanceCriteria);
     setDueDate(res.data.dueDate);
@@ -74,6 +77,8 @@ function UpdateProjectTask(props) {
       identifier: identifier,
       createdAt: createdAt,
     };
+
+    console.log(updatedProjectTask);
 
     props.updateProjectTask(
       identifier,
