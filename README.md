@@ -38,4 +38,4 @@ Feel free to use it: register, log in, create your projects and fill their board
 * Add comprehensive logging to the back-end.
 * Develop unit tests for the back-end.
 * Restyle entire application to move away from the initial design.
-* Implement the Drag and Drop API to make interacting with the project board better.
+* Implement the Drag and Drop API to make interacting with the project board better. *Update: Feature was implemented*
